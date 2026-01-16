@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Sound Buttons</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#0b5fff">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div class="titles">
+        <div class="title">Sound Buttons</div>
+        <div class="subtitle">10 botones • offline • editable</div>
+      </div>
+    </div>
+    <button id="btnInstall" class="ghost" hidden>Instalar</button>
+  </header>
+
+  <main class="wrap">
+    <div class="hint">
+      Toca <b>Reproducir</b> para sonar. Toca <b>Editar</b> para asignar audio y cambiar nombre.
+    </div>
+
+    <section id="list" class="list" aria-label="Botones de sonido"></section>
+
+    <footer class="footer">
+      <div class="small">
+        Guardado local (IndexedDB). Recomendado: audios cortos (efectos) en mp3/wav.
+      </div>
+    </footer>
+  </main>
+
+  <dialog id="dlg" class="dlg">
+    <form method="dialog" class="dlgCard">
+      <div class="dlgHeader">
+        <div class="dlgTitle">Editar botón</div>
+        <button class="ghost" value="cancel" aria-label="Cerrar">✕</button>
+      </div>
+
+      <label class="field">
+        <span>Nombre del botón (opcional)</span>
+        <input id="inpLabel" type="text" autocomplete="off" placeholder="Si lo dejas vacío usa el nombre del audio" />
+      </label>
+
+      <label class="field">
+        <span>Audio (mp3/wav/ogg/m4a)</span>
+        <input id="inpFile" type="file" accept="audio/*" />
+      </label>
+
+      <div class="row">
+        <button id="btnClearAudio" type="button" class="danger">Quitar audio</button>
+        <div class="spacer"></div>
+        <button value="cancel" class="ghost">Cancelar</button>
+        <button id="btnSave" value="default" class="primary">Guardar</button>
+      </div>
+      <div class="tiny" id="fileInfo"></div>
+    </form>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
